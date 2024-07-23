@@ -19,18 +19,18 @@ if not _ASTROPY_SETUP_:
     # add these here so we only need to cleanup the namespace at the end
     config_dir = None
 
-    if not os.environ.get('ASTROPY_SKIP_CONFIG_UPDATE', False):
-        config_dir = os.path.dirname(__file__)
-        try:
-            config.configuration.update_default_config(__package__, config_dir)
-        except config.configuration.ConfigurationDefaultMissingError as e:
-            wmsg = (e.args[0] + " Cannot install default profile. If you are "
-                    "importing from source, this is expected.")
-            warn(config.configuration.ConfigurationDefaultMissingWarning(wmsg))
-            del e
-
-    del os, warn, config_dir  # clean up namespace
-
+    # if not os.environ.get('ASTROPY_SKIP_CONFIG_UPDATE', False):
+    #     config_dir = os.path.dirname(__file__)
+    #     try:
+    #         config.configuration.update_default_config(__package__, config_dir)
+    #     except config.configuration.ConfigurationDefaultMissingError as e:
+    #         wmsg = (e.args[0] + " Cannot install default profile. If you are "
+    #                 "importing from source, this is expected.")
+    #         warn(config.configuration.ConfigurationDefaultMissingWarning(wmsg))
+    #         del e
+    #
+    # del os, warn, config_dir  # clean up namespace
+    #
     from .match_images import project_to_header,match_fits
     from .fits_overlap import fits_overlap,header_overlap
     from . import hcongrid,spectral_regrid
